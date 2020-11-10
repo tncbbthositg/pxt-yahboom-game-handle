@@ -1,7 +1,7 @@
 /**
  * Yahboom Basic Game Handle buttons
  */
-enum YahboomGameHandleButton {
+enum GameControllerButton {
   //% block=red
   Red = DAL.MICROBIT_ID_IO_P13,
   //% block=green
@@ -19,7 +19,7 @@ enum YahboomGameHandleButton {
  */
 //% color=#5197D5 weight=100 icon="\uf11b"
 //% groups='["Buttons", "Joystick", "Outputs"]'
-namespace yahboomGameHandle {
+namespace gameController {
   let hasBeenInitialized = false;
 
   function init(): void {
@@ -38,7 +38,7 @@ namespace yahboomGameHandle {
   //% blockId="gameHandle_isButtonDown" block="is %button down"
   //% weight=1
   //% group="Buttons"
-  export function isButtonDown(button: YahboomGameHandleButton): boolean {
+  export function isButtonDown(button: GameControllerButton): boolean {
     init();
     const pin = <DigitalPin><number>button;
     return pins.digitalReadPin(pin) === 0;
