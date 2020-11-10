@@ -3,7 +3,7 @@
  */
 enum YahboomGameHandleButton {
   //% block=red
-  Red = <number>DigitalPin.P13,
+  Red = DAL.MICROBIT_ID_IO_P13,
   //% block=green
   Green = 14,
   //% block=yellow
