@@ -5,13 +5,13 @@ enum YahboomGameHandleButton {
   //% block=red
   Red = DAL.MICROBIT_ID_IO_P13,
   //% block=green
-  Green = 14,
+  Green = DAL.MICROBIT_ID_IO_P14,
   //% block=yellow
-  Yellow = 15,
+  Yellow = DAL.MICROBIT_ID_IO_P15,
   //% block=blue
-  Blue = 16,
+  Blue = DAL.MICROBIT_ID_IO_P16,
   //% block=joystick
-  Joystick = 8,
+  Joystick = DAL.MICROBIT_ID_IO_P8,
 }
 
 /**
@@ -25,6 +25,10 @@ namespace yahboomGameHandle {
   function init(): void {
     hasBeenInitialized = true;
     pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P16, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P8, PinPullMode.PullUp);
   }
 
   /**
