@@ -28,7 +28,6 @@ namespace yahboomGameHandle {
   //% weight=1
   //% group="Buttons"
   export function isButtonDown(button: YahboomGameHandleButton): boolean {
-    return false;
-    // return pins.digitalReadPin(button) === 1;
+    return pins.digitalReadPin(button) === 1;
   }
 }
