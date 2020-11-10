@@ -3,7 +3,7 @@
  */
 enum YahboomGameHandleButton {
   //% block=red
-  Red = 13,
+  Red = DigitalPin.P13,
   //% block=green
   Green = 14,
   //% block=yellow
@@ -28,6 +28,6 @@ namespace yahboomGameHandle {
   //% weight=1
   //% group="Buttons"
   export function isButtonDown(button: YahboomGameHandleButton): boolean {
-    return pins.digitalReadPin(button) === 1;
+    return pins.digitalReadPin(DigitalPin.P13) === 1;
   }
 }
