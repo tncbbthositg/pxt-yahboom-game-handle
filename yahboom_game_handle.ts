@@ -1,14 +1,17 @@
+/**
+ * Yahboom Basic Game Handle buttons
+ */
 enum YahboomGameHandleButton {
   //% block=red
-  Red = "DigitalPin.P13",
+  Red = 13,
   //% block=green
-  Green = "DigitalPin.P14",
+  Green = 14,
   //% block=yellow
-  Yellow = "DigitalPin.P15",
+  Yellow = 15,
   //% block=blue
-  Blue = "DigitalPin.P16",
+  Blue = 16,
   //% block=joystick
-  Joystick = "DigitalPin.P8",
+  Joystick = 8,
 }
 
 /**
@@ -21,7 +24,11 @@ namespace yahboomGameHandle {
    * Returns true if the button is down
    * @param button the button to test
    */
+  //% blockId="gameHandle_isButtonDown" block="is %button down"
+  //% weight=1
+  //% group="Buttons"
   export function isButtonDown(button: YahboomGameHandleButton): boolean {
-    return pins.digitalReadPin(button) === 1;
+    return true;
+    // return pins.digitalReadPin(button) === 1;
   }
 }
