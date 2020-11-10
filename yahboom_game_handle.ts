@@ -3,7 +3,7 @@
  */
 enum YahboomGameHandleButton {
   //% block=red
-  Red = DigitalPin.P13,
+  Red = <number>DigitalPin.P13,
   //% block=green
   Green = 14,
   //% block=yellow
@@ -20,6 +20,13 @@ enum YahboomGameHandleButton {
 //% color=#5197D5 weight=100 icon="\uf11b"
 //% groups='["Buttons", "Joystick", "Outputs"]'
 namespace yahboomGameHandle {
+  let hasBeenInitialized = false;
+
+  function init(): void {
+    hasBeenInitialized = true;
+    pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
+  }
+
   /**
    * Returns true if the button is down
    * @param button the button to test
@@ -28,6 +35,8 @@ namespace yahboomGameHandle {
   //% weight=1
   //% group="Buttons"
   export function isButtonDown(button: YahboomGameHandleButton): boolean {
-    return pins.digitalReadPin(DigitalPin.P13) === 1;
+    init();
+    const pin = <DigitalPin><number>button;
+    return pins.digitalReadPin(pin) === 0;
   }
 }
