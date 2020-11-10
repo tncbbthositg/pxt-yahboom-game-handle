@@ -1,0 +1,17 @@
+{
+  "name": "pxt-yahboom-game-handle",
+  "version": "0.0.1",
+  "description": "A PXT extension for the Yahboom micro:bit basic game handle.",
+  "license": "MIT",
+  "dependencies": {
+    "core": "*"
+  },
+  "files": [
+      "README.md",
+      "yahboom_game_handle.ts"
+  ],
+  "testFiles": [
+      "tests.ts"
+  ],
+  "public": true
+}
