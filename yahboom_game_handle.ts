@@ -7,9 +7,9 @@ enum YahboomGameHandleButton {
   //% block=green
   Green = DAL.MICROBIT_ID_IO_P14,
   //% block=yellow
-  Yellow = DAL.MICROBIT_ID_IO_P15,
+  Yellow = DAL.MICROBIT_ID_IO_P16,
   //% block=blue
-  Blue = DAL.MICROBIT_ID_IO_P16,
+  Blue = DAL.MICROBIT_ID_IO_P15,
   //% block=joystick
   Joystick = DAL.MICROBIT_ID_IO_P8,
 }
