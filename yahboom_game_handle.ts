@@ -32,11 +32,6 @@ enum GameControllerJoystickAxis {
 namespace gameController {
   let hasBeenInitialized = false;
 
-  export interface Coordinate {
-    x: number;
-    y: number;
-  };
-
   function init(): void {
     hasBeenInitialized = true;
     pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
@@ -66,7 +61,7 @@ namespace gameController {
   //% blockId="gameHandle_joystickValue" block="joystick deflection of %axis"
   //% group="Joystick"
   export function joystickValue(axis: GameControllerJoystickAxis): number {
-    const pin = <DigitalPin><number>axis;
+    const pin = <AnalogPin><number>axis;
     return pins.analogReadPin(pin);
   }
 }
