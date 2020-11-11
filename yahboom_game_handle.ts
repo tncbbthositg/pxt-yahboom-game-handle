@@ -53,11 +53,11 @@ function init(): void {
     pins.setPull(DigitalPin.P16, PinPullMode.PullUp);
     pins.setPull(DigitalPin.P8, PinPullMode.PullUp);
 
-    pins.setEvents(DigitalPin.P13, PinEventType.Edge);
-    pins.setEvents(DigitalPin.P14, PinEventType.Edge);
-    pins.setEvents(DigitalPin.P15, PinEventType.Edge);
-    pins.setEvents(DigitalPin.P16, PinEventType.Edge);
-    pins.setEvents(DigitalPin.P8, PinEventType.Edge);
+    pins.setEvents(DigitalPin.P13, PinEventType.Touch);
+    pins.setEvents(DigitalPin.P14, PinEventType.Touch);
+    pins.setEvents(DigitalPin.P15, PinEventType.Touch);
+    pins.setEvents(DigitalPin.P16, PinEventType.Touch);
+    pins.setEvents(DigitalPin.P8, PinEventType.Touch);
   }
 
   /**
@@ -82,7 +82,7 @@ function init(): void {
   //% blockId="gameHandle_onButtonEvent" block="on %button button|%event"
   export function onButtonEvent(button: GameControllerButton, event: GameControllerButtonEvent, handler: Action) {
     init();
-    control.onEvent(<number>button, <number>event, handler);
+    control.onEvent(<EventBusSource>button, <EventBusValue>event, handler);
   }
 
   /**
