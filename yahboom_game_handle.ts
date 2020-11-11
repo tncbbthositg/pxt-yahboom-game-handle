@@ -15,12 +15,27 @@ enum GameControllerButton {
 }
 
 /**
+ * Yahboom Basic Game Handle joystick axes
+ */
+enum GameControllerJoystickAxis {
+  //% block=x-axis
+  x = DAL.MICROBIT_ID_IO_P1,
+  //% block=y-axis
+  y = DAL.MICROBIT_ID_IO_P2,
+}
+
+/**
  * Controls the functions of the Yahboom Basic Game Handle
  */
 //% color=#5197D5 weight=100 icon="\uf11b"
 //% groups='["Buttons", "Joystick", "Outputs"]'
 namespace gameController {
   let hasBeenInitialized = false;
+
+  export interface Coordinate {
+    x: number;
+    y: number;
+  };
 
   function init(): void {
     hasBeenInitialized = true;
@@ -42,5 +57,16 @@ namespace gameController {
     init();
     const pin = <DigitalPin><number>button;
     return pins.digitalReadPin(pin) === 0;
+  }
+
+  /**
+   * Returns the percentage deflection of the joystick
+   * @param axis the axis to read the value of
+   */
+  //% blockId="gameHandle_joystickValue" block="joystick deflection of %axis"
+  //% group="Joystick"
+  export function joystickValue(axis: GameControllerJoystickAxis): number {
+    const pin = <DigitalPin><number>axis;
+    return pins.analogReadPin(pin);
   }
 }
