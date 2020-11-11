@@ -27,7 +27,7 @@ enum GameControllerJoystickAxis {
 /**
  * Yahboom Basic Game Handle button events
  */
-export enum GameControllerButtonEvent {
+enum GameControllerButtonEvent {
   //% block="down"
   Down = DAL.MICROBIT_BUTTON_EVT_DOWN,
   //% block="up"
