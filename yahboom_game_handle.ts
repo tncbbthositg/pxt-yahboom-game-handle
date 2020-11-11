@@ -73,8 +73,7 @@ namespace gameController {
    * @param handler the code to execute when the event happens
    */
   //% group="Buttons"
-  //% blockId="gameHandle_onButtonEvent" block="when %button button is %event"
-  //% button.fieldEditor="gridpicker" button.fieldOptions.columns=3
+  //% blockId="gameHandle_onButtonEvent" block="when the %button button is|%event"
   export function onButtonEvent(button: GameControllerButton, event: GameControllerButtonEvent, handler: Action) {
     init();
     control.onEvent(<number>button, <number>event, handler);
