@@ -29,11 +29,11 @@ enum GameControllerJoystickAxis {
  */
 enum GameControllerButtonEvent {
   //% block="down"
-  Down = DAL.MICROBIT_BUTTON_EVT_DOWN,
+  Down = EventBusValue.MICROBIT_BUTTON_EVT_DOWN,
   //% block="up"
-  Up = DAL.MICROBIT_BUTTON_EVT_UP,
+  Up = EventBusValue.MICROBIT_BUTTON_EVT_UP,
   //% block="click"
-  Click = DAL.MICROBIT_BUTTON_EVT_CLICK
+  Click = EventBusValue.MICROBIT_BUTTON_EVT_CLICK
 }
 
 /**
