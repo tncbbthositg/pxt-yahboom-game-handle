@@ -19,9 +19,9 @@ enum GameControllerButton {
  */
 enum GameControllerJoystickAxis {
   //% block=x-axis
-  x = DAL.MICROBIT_ID_IO_P1,
+  x = DAL.MICROBIT_ID_IO_P2,
   //% block=y-axis
-  y = DAL.MICROBIT_ID_IO_P2,
+  y = DAL.MICROBIT_ID_IO_P1,
 }
 
 /**
@@ -62,6 +62,7 @@ namespace gameController {
   //% group="Joystick"
   export function joystickValue(axis: GameControllerJoystickAxis): number {
     const pin = <AnalogPin><number>axis;
-    return pins.analogReadPin(pin);
+    const value = pins.analogReadPin(pin);
+    return Math.map(value, 0, 1023, -100, 100);
   }
 }
