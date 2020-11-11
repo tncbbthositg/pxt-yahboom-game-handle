@@ -96,7 +96,6 @@ function init(): void {
     const value = pins.analogReadPin(pin);
     const percentage = Math.map(value, 0, 1023, -100, 100);
 
-    if (axis === GameControllerJoystickAxis.x) { return percentage * -1; }
-    return percentage;
+    return percentage * -1;
   }
 }
