@@ -29,11 +29,11 @@ enum GameControllerJoystickAxis {
  */
 enum GameControllerButtonEvent {
   //% block="down"
-  Down = EventBusValue.MICROBIT_BUTTON_EVT_DOWN,
+  Down = DAL.MICROBIT_BUTTON_EVT_DOWN,
   //% block="up"
-  Up = EventBusValue.MICROBIT_BUTTON_EVT_UP,
+  Up = DAL.MICROBIT_BUTTON_EVT_UP,
   //% block="click"
-  Click = EventBusValue.MICROBIT_BUTTON_EVT_CLICK
+  Click = DAL.MICROBIT_BUTTON_EVT_CLICK
 }
 
 /**
@@ -82,7 +82,7 @@ function init(): void {
   //% blockId="gameHandle_onButtonEvent" block="on %button button|%event"
   export function onButtonEvent(button: GameControllerButton, event: GameControllerButtonEvent, handler: Action) {
     init();
-    control.onEvent(<EventBusSource>button, <EventBusValue>event, handler);
+    control.onEvent(<EventBusSource><number>button, <EventBusValue><number>event, handler);
   }
 
   /**
