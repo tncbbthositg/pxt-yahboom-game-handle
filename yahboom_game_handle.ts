@@ -68,14 +68,4 @@ namespace gameController {
     if (axis === GameControllerJoystickAxis.x) { return percentage * -1; }
     return percentage;
   }
-
-  /**
-   * Shake and buzz!
-   * @param intensity intensity between 0 and 1023. eg: 512
-   */
-  //% blockId="gameHandle_buzz" block="output with intensity %intensity"
-  //% group="Outputs"
-  export function buzz(intensity: number): void {
-    pins.analogWritePin(AnalogPin.P0, intensity);
-  }
 }
