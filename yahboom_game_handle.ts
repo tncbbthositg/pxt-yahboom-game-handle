@@ -65,4 +65,16 @@ namespace gameController {
     const value = pins.analogReadPin(pin);
     return Math.map(value, 0, 1023, -100, 100);
   }
+
+  /**
+   * Returns the percentage deflection of the joystick
+   */
+  //% blockId="gameHandle_joystickValueNoArgs" block="combined joystick deflection"
+  //% group="Joystick"
+  export function joystickReading(): {x: number, y: number} {
+    const x = joystickValue(GameControllerJoystickAxis.x);
+    const y = joystickValue(GameControllerJoystickAxis.y);
+
+    return { x, y };
+  }
 }
