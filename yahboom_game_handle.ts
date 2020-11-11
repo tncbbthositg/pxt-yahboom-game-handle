@@ -44,13 +44,13 @@ enum GameControllerButtonEvent {
 namespace gameController {
   let hasBeenInitialized = false;
 
-  function init(): void {
+function init(): void {
     hasBeenInitialized = true;
-    // pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
-    // pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
-    // pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
-    // pins.setPull(DigitalPin.P16, PinPullMode.PullUp);
-    // pins.setPull(DigitalPin.P8, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P16, PinPullMode.PullUp);
+    pins.setPull(DigitalPin.P8, PinPullMode.PullUp);
   }
 
   /**
