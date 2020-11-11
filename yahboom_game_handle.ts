@@ -25,6 +25,18 @@ enum GameControllerJoystickAxis {
 }
 
 /**
+ * Yahboom Basic Game Handle button events
+ */
+export enum GameControllerButtonEvent {
+  //% block="down"
+  Down = DAL.MICROBIT_BUTTON_EVT_DOWN,
+  //% block="up"
+  Up = DAL.MICROBIT_BUTTON_EVT_UP,
+  //% block="click"
+  Click = DAL.MICROBIT_BUTTON_EVT_CLICK
+}
+
+/**
  * Controls the functions of the Yahboom Basic Game Handle
  */
 //% color=#5197D5 weight=100 icon="\uf11b"
@@ -52,6 +64,20 @@ namespace gameController {
     init();
     const pin = <DigitalPin><number>button;
     return pins.digitalReadPin(pin) === 0;
+  }
+
+  /**
+   * Do something when one of the buttons is pressed
+   * @param button the button to watch
+   * @param event the event to watch for
+   * @param handler the code to execute when the event happens
+   */
+  //% group="Buttons"
+  //% blockId="gameHandle_onButtonEvent" block="when %button button is %event"
+  //% button.fieldEditor="gridpicker" button.fieldOptions.columns=3
+  export function onButtonEvent(button: GameControllerButton, event: GameControllerButtonEvent, handler: Action) {
+    init();
+    control.onEvent(<number>button, <number>event, handler);
   }
 
   /**
