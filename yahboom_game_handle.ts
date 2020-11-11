@@ -70,7 +70,6 @@ namespace gameController {
    * Do something when one of the buttons is pressed
    * @param button the button to watch
    * @param event the event to watch for
-   * @param handler the code to execute when the event happens
    */
   //% group="Buttons"
   //% blockId="gameHandle_onButtonEvent" block="on %button button|%event"
