@@ -94,9 +94,10 @@ function init(): void {
   export function joystickValue(axis: GameControllerJoystickAxis): number {
     const pin = <AnalogPin><number>axis;
     const value = pins.analogReadPin(pin);
-    const percentage = Math.map(value, 0, 1023, -100, 100);
 
-    if (Math.abs(percentage) < 3) { return 0;} // Create a deadzone in the middle where it's noisy.
+    const percentage = Math.map(value, 0, 1023, -100, 100);
+    console.log(`Mapped value ${value}: ${percentage}`);
+    // if (Math.abs(percentage) < 3) { return 0;} // Create a deadzone in the middle where it's noisy.
 
     if (axis === GameControllerJoystickAxis.x) {
       return percentage * -1;  // The X axis is inverted
