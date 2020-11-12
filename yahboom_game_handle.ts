@@ -46,6 +46,8 @@ namespace gameController {
   let loggingEnabled = false;
 
   function init(): void {
+    if (hasBeenInitialized) { return; }
+
     hasBeenInitialized = true;
 
     pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
