@@ -96,7 +96,7 @@ function init(): void {
     const value = pins.analogReadPin(pin);
     const percentage = Math.map(value, 0, 1023, -100, 100);
 
-    if (Math.abs(value) < 3) { return 0;} // Create a deadzone in the middle where it's noisy.
+    if (Math.abs(percentage) < 3) { return 0;} // Create a deadzone in the middle where it's noisy.
 
     if (axis === GameControllerJoystickAxis.x) {
       return percentage * -1;  // The X axis is inverted
