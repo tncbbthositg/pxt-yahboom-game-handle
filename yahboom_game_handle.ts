@@ -96,8 +96,8 @@ function init(): void {
     const value = pins.analogReadPin(pin);
 
     const percentage = Math.map(value, 0, 1023, -100, 100);
+    if (Math.abs(percentage) < 3) { return 0;} // Create a deadzone in the middle where it's noisy.
     console.log(`Axis ${axis}: ${percentage * -1}`);
-    // if (Math.abs(percentage) < 3) { return 0;} // Create a deadzone in the middle where it's noisy.
 
     return percentage * -1;
   }
