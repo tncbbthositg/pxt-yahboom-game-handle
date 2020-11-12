@@ -40,11 +40,12 @@ enum GameControllerButtonEvent {
  * Controls the functions of the Yahboom Basic Game Handle
  */
 //% color=#5197D5 weight=100 icon="\uf11b"
-//% groups='["Buttons", "Joystick", "Outputs"]'
+//% groups='["Buttons", "Joystick", "Outputs", "Logging"]'
 namespace gameController {
   let hasBeenInitialized = false;
+  let loggingEnabled = false;
 
-function init(): void {
+  function init(): void {
     hasBeenInitialized = true;
 
     pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
@@ -58,6 +59,24 @@ function init(): void {
     pins.setEvents(DigitalPin.P15, PinEventType.Edge);
     pins.setEvents(DigitalPin.P16, PinEventType.Edge);
     pins.setEvents(DigitalPin.P8, PinEventType.Edge);
+  }
+
+  function log(message: string): void {
+    if (!loggingEnabled) { return; }
+    console.log(message);
+  }
+
+  /**
+   * Enable and disable logging
+   * @param enabled whether or not logging is on
+   */
+  //% blockId="gameHandle_setLoggingStatus" block="show log messages %enabled"
+  //% weight=1
+  //% group="Logging"
+  //% advanced=true
+  //% enabled.defl=false
+  export function setLoggingEnabled(enabled: boolean): void {
+    loggingEnabled = enabled;
   }
 
   /**
@@ -95,9 +114,9 @@ function init(): void {
     const pin = <AnalogPin><number>axis;
     const value = pins.analogReadPin(pin);
 
-    const percentage = Math.map(value, 0, 1023, -100, 100);
-    if (Math.abs(percentage) < 3) { return 0;} // Create a deadzone in the middle where it's noisy.
-    console.log(`Axis ${axis}: ${percentage * -1}`);
+    let percentage = Math.map(value, 0, 1023, -100, 100);
+    if (Math.abs(percentage) < 3) { percentage = 0;} // Create a deadzone in the middle where it's noisy.
+    log(`Axis ${axis}: ${percentage * -1}`);
 
     return percentage * -1;
   }
